@@ -1,0 +1,13 @@
+- hosts: localhost
+  become: true
+  pre_tasks:
+  - name: Update Cache
+    yum: 
+     update-cache: true
+    tags:
+    - docker
+  tasks:
+  - name: Include Docker and DockerCompose 
+    include: tasks/docker.yml
+  - name: Include Base software
+    include: tasks/base.yml

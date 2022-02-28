@@ -1,0 +1,5 @@
+---
+- name: Install lsof
+  yum: name=lsof
+  tags:
+  - base

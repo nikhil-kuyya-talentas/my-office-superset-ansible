@@ -1,0 +1,12 @@
+- name: Install required system packages
+  yum: name={{ item }} state=latest update_cache=yes
+  loop: [ 'yum-utils', "python3" ,'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
+  tags:
+  - docker
+
+- name: Installl Docker
+  yum: name={{item}}
+  loop: ["docker-ce", "docker-ce-cli" ,"containerd.io"]
+  tags:
+  - docker
+    
